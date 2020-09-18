@@ -15,12 +15,15 @@ int main(void)
 
 		for (num2 = 49 ; num2 <= 57 ; num2++)
 		{
-			if(num1 != num2)
+			if (num1 != num2)
 			{
-			putchar(num1);
-			putchar(num2);
-			putchar(',');
-			putchar(' ');
+				if (num2 > num1)
+				{
+					putchar(num1);
+					putchar(num2);
+					putchar(',');
+					putchar(' ');
+				}		
 			}
 		}
 	}
