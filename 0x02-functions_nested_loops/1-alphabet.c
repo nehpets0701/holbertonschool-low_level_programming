@@ -1,17 +1,6 @@
 #include "holberton.h"
 
 /**
- *main-alphafunction
- *Return:0
- */
-int main(void)
-{
-	print_alphabet();
-
-	return (0);
-}
-
-/**
  *print_alphabet-alphafunction
  */
 void print_alphabet(void)
@@ -24,4 +13,15 @@ void print_alphabet(void)
 	}
 
 	_putchar('\n');
+}
+
+/**
+ *main-alpha
+ *Return:0
+ */
+int main(void)
+{
+        print_alphabet();
+
+        return (0);
 }
