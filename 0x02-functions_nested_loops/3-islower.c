@@ -1,9 +1,10 @@
 #include "holberton.h"
 
 /**
- *islower-lower
- *Return:0/1
- */
+*_islower-lower
+*Return:0/1
+*@c:input
+*/
 int _islower(int c)
 {
 	if (_islower(c))
