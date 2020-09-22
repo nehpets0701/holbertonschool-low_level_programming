@@ -1,5 +1,6 @@
 #ifndef holberton_h
 #define holberton_h
+#include <stdio.h>
 
 int _putchar(char c);
 
