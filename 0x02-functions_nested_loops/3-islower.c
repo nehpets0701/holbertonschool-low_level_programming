@@ -2,7 +2,7 @@
 
 /**
 *_islower-lower
-*Return:0/1
+*Return: 0/1
 *@c:input
 */
 int _islower(int c)
