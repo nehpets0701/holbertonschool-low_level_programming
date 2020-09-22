@@ -2,7 +2,8 @@
 
 /**
  *_isalpha-isalpha
- *Return:0/1
+ *Return: 0/1
+ *@c: input
  */
 int _isalpha(int c)
 {
@@ -10,7 +11,7 @@ int _isalpha(int c)
 	{
 		return (1);
 	}
-	if(c >= 97 && <= 122)
+	if (c >= 97 && <= 122)
 	{
 		return (1);
 	}
