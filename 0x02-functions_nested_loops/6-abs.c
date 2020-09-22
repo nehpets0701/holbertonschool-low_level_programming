@@ -3,7 +3,7 @@
 /**
  *_abs-absolutevalue
  *Return: number
- *@int:input
+ *@i:input
  */
 int _abs(int i)
 {
