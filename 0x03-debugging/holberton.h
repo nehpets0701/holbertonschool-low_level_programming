@@ -27,4 +27,6 @@ void print_to_98(int n);
 void times_table(void);
 
 int largest_number(int a, int b, int c);
+
+void print_remaining(int month, int day, int year);
 #endif /*holberton_h*/
