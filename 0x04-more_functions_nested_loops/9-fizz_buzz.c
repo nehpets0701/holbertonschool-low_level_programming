@@ -13,18 +13,24 @@ int main(void)
 		if (num % 5 == 0 && num % 3 == 0)
 		{
 			printf("FizzBuzz");
+			printf(" ");
 		}
-		if (num % 5 == 0 && num % 3 != 0)
+		else if (num % 5 == 0 && num % 3 != 0)
 		{
 			printf("Buzz");
+			printf(" ");
 		}
-		if (num % 5 != 0 && num % 3 == 0)
+		else if (num % 5 != 0 && num % 3 == 0)
 		{
 			printf("Fizz");
+			printf(" ");
 		}
-		else
+		else if (num % 5 != 0 && num %3 != 0)
 		{
 			printf("%d", num);
+			printf(" ");
 		}
 	}
+	printf("\n");
+	return (0);
 }
