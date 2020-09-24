@@ -3,7 +3,6 @@
 /**
  *print_line-print
  *Return:0
- *@i:counter
  *@n:input
  */
 void print_line(int n)
