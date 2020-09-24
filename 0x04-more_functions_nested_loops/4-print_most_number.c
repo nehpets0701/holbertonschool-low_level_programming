@@ -3,7 +3,6 @@
 /**
  *print_most_numbers-no24
  *Return: 0
- *@i:counter
  */
 void print_most_numbers(void)
 {
