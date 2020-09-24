@@ -25,7 +25,7 @@ int main(void)
 			printf("Fizz");
 			printf(" ");
 		}
-		else if (num % 5 != 0 && num % 3 != 0)
+		else
 		{
 			printf("%d", num);
 			printf(" ");
