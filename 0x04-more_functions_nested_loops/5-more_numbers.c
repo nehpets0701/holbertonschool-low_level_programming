@@ -1,22 +1,18 @@
 #include "holberton.h"
 
 /**
- *more_numbers-14
+ *print_most_numbers-no24
  *Return: 0
- *@i:counter
- *@ch:char
  */
-void more_numbers(void)
+void print_most_numbers(void)
 {
 	int i;
-	int ch;
 
-	for (i = 0 ; i <= 9 ; i++)
+	for (i = 0 ; i <= 14 ; i++)
 	{
-		for (ch = 48; ch <= 62 ; ch++)
-		{
-			_putchar(ch);
-		}
-		_putchar('\n');
+		_putchar(i % 10 + '0');
+		if (i > 9)
+			_putchar(i / 10 + '0');
 	}
+	_putchar('\n');
 }
