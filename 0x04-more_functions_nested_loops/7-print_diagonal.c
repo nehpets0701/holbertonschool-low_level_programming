@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- *print-diagonal-diagonal
+ *print_diagonal-diagonal
  *Retrun: 0
  *@n:input
  */
