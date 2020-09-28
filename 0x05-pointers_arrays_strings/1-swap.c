@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- *swap-int-swap
+ *swap_int-swap
  *Return:0
  *@a:input
  *@b:input
