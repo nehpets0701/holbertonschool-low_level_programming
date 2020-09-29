@@ -15,12 +15,12 @@ void print_array(int *a, int n)
 	{
 		if (index == n - 1)
 		{
-			printf("%d, ", a[index]);
+			printf("%d", a[index]);
 			index++;
 		}
 		else
 		{
-			printf("%d", a[index]);
+			printf("%d, ", a[index]);
 			index++;
 		}
 	}
