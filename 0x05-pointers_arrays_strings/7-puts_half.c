@@ -16,16 +16,18 @@ void puts_half(char *str)
 		length++;
 	}
 
-	n = length;
-
-	if (n % 2 != 0)
+	if (length % 2 != 0)
 	{
-		n--;
+		n = (length + 1) / 2;
+	}
+	else
+	{
+		n = length / 2;
 	}
 
 	for (a = 0 ; a < length ; a++)
 	{
-		if (a >= n / 2)
+		if (a >= n)
 		{
 			_putchar(str[a]);
 		}
