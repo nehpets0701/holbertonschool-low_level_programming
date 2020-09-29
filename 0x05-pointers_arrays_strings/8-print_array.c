@@ -10,10 +10,10 @@
 void print_array(int *a, int n)
 {
 	int index = 0;
-	
-	while (index <= n)
+
+	while (index < n)
 	{
-		if (index != n)
+		if (index == n - 1)
 		{
 			printf("%d, ", a[index]);
 			index++;
