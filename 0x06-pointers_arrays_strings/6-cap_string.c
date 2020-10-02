@@ -3,12 +3,24 @@
 /**
  *cap_string-capital
  *Return:char
- *betty comment????????
+ *@s:input
  */
-char *cap_string(char *)
+char *cap_string(char *s)
 {
-	char[] letters = {' ', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
-	int i;
+	char letters[] = {'\t', ' ', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 
-	for (i = 0 ; i < 
+	int i;
+	int j;
+
+	for (i = 0 ; s[i] != '\0'; i++)
+	{
+		for (j = 0 ; j <= 13; j++)
+		{
+			if(s[i - 1] == letters[j] || i == 0)
+				if (s[i] >= 97 && s[i] <= 122)
+					s[i] = s[i] - 32;
+		}
+	}  
+
+	return (s);
 }
