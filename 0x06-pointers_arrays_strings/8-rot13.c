@@ -3,7 +3,7 @@
 /**
  *rot13-rotate13
  *Return:char
- *betty comment???????
+ *@s:input
  */
 char *rot13(char *s)
 {
@@ -20,7 +20,10 @@ char *rot13(char *s)
 			if (s[i] == alpha[j])
 			{
 				s[i] = rot13[j];
+				break;
 			}
 		}
 	}
+
+	return (s);
 }
