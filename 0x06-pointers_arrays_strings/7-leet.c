@@ -7,10 +7,22 @@
  */
 char *leet(char *s)
 {
-	letters[10] = {a, A, e, E, o, O, t, T, l, L};
+	char letters[] = {"aeotlAEOTL"};
+	char leet[] = {"4307143071"};
 
-	while (*s != '\0')
+	int i;
+	int j;
+
+	for (i = 0 ; s[i] != '\0' ; i++)
 	{
-		
+		for (j = 0 ; letters[j] != '\0' ; j++)
+		{
+			if (s[i] == letters[j])
+			{
+				s[i] = leet[j];
+			}
+		}
 	}
+
+	return (s);
 }
