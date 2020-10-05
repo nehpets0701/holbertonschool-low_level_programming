@@ -51,12 +51,11 @@ char *_strstr(char *haystack, char *needle)
 				return ((char *) haystack);
 		}
 		haystack++;
-	}
 
-	if (*needle == '\0')
-	{
-		return (0);
+		if (needle == '\0')
+		{
+			return (0);
+		}
 	}
-
 	return (0);
 }
