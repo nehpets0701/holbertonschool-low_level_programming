@@ -1,34 +1,6 @@
 #include "holberton.h"
 
 /**
- *_strncmp-strncmp
- *Return:int
- *@s1:input
- *@s2:input
- *@n:input
- */
-int _strncmp(const char *s1, const char *s2, int n)
-{
-	while (n && *s1 && (*s1 == *s2))
-	{
-		++s1;
-		++s2;
-		--n;
-	}
-	if (n == 0)
-	{
-		return (0);
-	}
-	else
-	{
-		return (*(unsigned char *)s1 - *(unsigned char *)s2);
-	}
-}
-
-
-
-
-/**
  *_strstr-locates substring
  *Return:char
  *@haystack:big string
@@ -36,26 +8,25 @@ int _strncmp(const char *s1, const char *s2, int n)
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int length = 0;
+	int nlength = 0;
+	int hlength = 0;
 
-	while (needle[length] != '\0')
+	for (hlength = 0 ; *(haystack + hlength) != '\0' ; hlength++)
 	{
-		length++;
+		for (nlength = 0 ; *(needle + nlength) != '\0' ; nlength++)
+		{
+			if (*(haystack + hlength + nlength) != '\0')
+			{
+				if (*(haystack + hlength + nlength) != *(needle + nlength))
+					break;
+			}
+			else
+				break;
+		}
+
+		if (*(needle + nlength) == '\0')
+			return (haystack + hlength);
 	}
 
-	while (*haystack != '\0')
-	{
-		if (*haystack == *needle)
-		{
-			if (!_strncmp(haystack, needle, length))
-				return ((char *) haystack);
-		}
-		haystack++;
-
-		if (needle == '\0')
-		{
-			return (0);
-		}
-	}
 	return (0);
 }
