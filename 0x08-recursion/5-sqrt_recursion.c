@@ -23,6 +23,6 @@ int findSquare(int n, int i)
  *@n:input
  */
 int _sqrt_recursion(int n)
-{ 
-	return findSquare(n, 1);
+{
+	return (findSquare(n, 1));
 }
