@@ -1,5 +1,10 @@
 #include <stdio.h>
-
+/**
+ *main-arg
+ *Return:0
+ *@argc:count
+ *@argv:value
+ */
 int main(int argc, char *argv[])
 {
 	int i;
