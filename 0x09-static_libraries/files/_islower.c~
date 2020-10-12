@@ -1,6 +1,6 @@
 #include "holberton.h"
 
-int _isalpha(int c)
+int _islower(char c)
 {
 	return (0);
 }
