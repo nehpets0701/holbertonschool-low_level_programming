@@ -1,6 +1,18 @@
 #include "holberton.h"
 
-int _putchar(char c)
+/**
+ *_isupper-upper
+ *Return: 0/1
+ *@c:input
+ */
+int _isupper(int c)
 {
-	return (0);
+	if (c >= 65 && c <= 90)
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
 }
