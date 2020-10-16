@@ -1,47 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "holberton.h"
-
 /**
- *_realloc-realloc
- *Return:0
- *@ptr:old location
- *@old_size:old size
- *@new_size:new size
+ *_realloc - bla
+ *@ptr: n;a
+ *@old_size: bla
+ *@new_size: bla
+ *Return: bla
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	else if (!ptr)
-		return malloc(new_size);
-	else if (new_size <= old_size)
-		return (ptr);
-	else
-	{
-		free(ptr);
-		ptr = malloc(new_size);
-	}
-}
-
-/**
- *_memcpy-copy memory area
- *Return:char
- *@dest:dest
- *@src:src
- *@n:number of bytes
- */
-char *_memcpy(char *dest, char *src, unsigned int n)
-{
-	unsigned int i;
-
-	for (i = 0 ; i < n ; i++)
-	{
-		dest[i] = src[i];
-	}
-
-	return (dest);
+        unsigned int count = 0, i = 0;
+        char *trash, *ptr1 = ptr;
+        if (new_size == old_size)
+                return (ptr);
+        if (new_size == 0 && ptr != NULL)
+        {
+                free(ptr);
+                return (NULL);
+        }
+        if (ptr == NULL)
+        {
+                ptr = malloc(new_size);
+                if (ptr == NULL)
+                        return (NULL);
+                return (ptr);
+        }
+        if (new_size < old_size)
+                old_size = new_size;
+        trash = malloc(new_size);
+        if (trash == NULL)
+        {
+                free(trash);
+                return (NULL);
+        }
+        count = (new_size - old_size) + 1;
+        for (i = 0; i < count; i++)
+                trash[i] = ptr1[i];
+        free(ptr);
+        ptr1 = malloc(new_size);
+        if (ptr1 == NULL)
+        {
+                free(ptr1);
+                free(trash);
+		[12:50 PM] return (NULL);
+        }
+        for (i = 0; i < new_size; i++)
+                ptr1[i] = trash[i];
+        return (ptr1);
 }
