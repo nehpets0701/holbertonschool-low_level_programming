@@ -2,9 +2,9 @@
 #include <stdlib.h>
 
 /**
- *init-dog-dog
+ *init_dog-dog
  *Return:0
- *@dog:?
+ *@d:d
  *@name:name
  *@age:age
  *@owner:owner
