@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "3-calc.h"
 
@@ -9,11 +10,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int a = atoi(argv[1]);
-	int b = atoi(argv[3]);
-	int (*ptr)(int, int);
-
-	ptr = get_op_func(argv[2]);
+	int a;
+	int b;
 
 	if (argc != 4)
 	{
@@ -21,18 +19,21 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (p == NULL)
+	if (get_op_func(argv[2] == NULL || argv[2][1] != '\0'))
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	if (b == 0)
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
+
+	if ((argv[2][0] == '/' && b == 0) || (argv [2][0] == '%' && b == 0))
 	{
 		printf("Error\n");
 		exit(100);
 	}
 
-	printf("%d\n", (*ptr)(a, b));
+	printf("%d\n", get_op_func(argv[2])(a, b));
 	return (0);
 }
