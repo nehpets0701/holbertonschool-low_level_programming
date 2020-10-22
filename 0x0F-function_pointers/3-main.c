@@ -5,8 +5,8 @@
 /**
  *main-main
  *Return:0
- *@argc-arg
- *@argv-arg
+ *@argc:arg
+ *@argv:arg
  */
 int main(int argc, char *argv[])
 {
