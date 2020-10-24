@@ -43,7 +43,8 @@ void print_all(const char * const format, ...)
 			break;
 		default:
 			comma = 0;
-			break;
+			a++;
+			continue;
 		}
 		comma = 1;
 		a++;
