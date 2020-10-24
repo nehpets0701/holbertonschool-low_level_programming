@@ -11,9 +11,8 @@
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int a = 0, b = 0;
-	int comma = 1;
-	int length = 0;
+	int a = 0, comma = 1, length = 0;
+	char *s;
 
 	va_start(args, format);
 	while (format[length] != '\0')
@@ -21,7 +20,7 @@ void print_all(const char * const format, ...)
 	while (a < length)
 	{
 		comma = 1;
-		switch (format[b])
+		switch (format[a])
 		{
 		case 'i':
 			printf("%i", va_arg(args, int));
@@ -33,18 +32,18 @@ void print_all(const char * const format, ...)
 			printf("%f", va_arg(args, double));
 			break;
 		case 's':
-			if (args != NULL)
+			s = va_arg(args, char*);
+			if (s == NULL)
 			{
-				printf("%s", va_arg(args, char*));
+				printf("%p", s);
 				break;
 			}
-			printf("(nil)");
+			printf("%s", s);
 			break;
 		default:
 			comma = 0;
 		}
 		a++;
-		b++;
 		if (a < length && comma == 1)
 			printf(", ");
 	}
