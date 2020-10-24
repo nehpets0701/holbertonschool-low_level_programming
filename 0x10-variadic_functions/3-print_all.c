@@ -19,7 +19,6 @@ void print_all(const char * const format, ...)
 		length++;
 	while (a < length)
 	{
-		comma = 1;
 		switch (format[a])
 		{
 		case 'i':
@@ -42,10 +41,12 @@ void print_all(const char * const format, ...)
 			break;
 		default:
 			comma = 0;
+			break;
 		}
-		a++;
-		if (a < length && comma == 1)
+		if (a < length - 1 && comma == 1)
 			printf(", ");
+		comma = 1;
+		a++;
 	}
 	printf("\n");
 	va_end(args);
