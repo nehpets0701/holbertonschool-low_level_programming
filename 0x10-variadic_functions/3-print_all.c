@@ -19,6 +19,8 @@ void print_all(const char * const format, ...)
 		length++;
 	while (a < length)
 	{
+		if (a != 0 && comma == 1)
+			printf(", ");
 		switch (format[a])
 		{
 		case 'i':
@@ -43,8 +45,6 @@ void print_all(const char * const format, ...)
 			comma = 0;
 			break;
 		}
-		if (a < length - 1 && comma == 1)
-			printf(", ");
 		comma = 1;
 		a++;
 	}
