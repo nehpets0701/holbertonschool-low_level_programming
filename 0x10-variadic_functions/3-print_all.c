@@ -30,15 +30,15 @@ void print_all(const char * const format, ...)
 			printf("%c", va_arg(args, int));
 			break;
 		case 'f':
-			printf("%f", va_arg(args, int));
+			printf("%f", va_arg(args, double));
 			break;
 		case 's':
-			if (s == NULL)
+			if (args != NULL)
 			{
-				printf("(nil)");
+				printf("%s", va_arg(args, char*));
 				break;
 			}
-			printf("%s", va_arg(args, char*));
+			printf("(nil)");
 			break;
 		default:
 			comma = 0;
