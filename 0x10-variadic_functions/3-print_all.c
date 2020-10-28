@@ -15,8 +15,25 @@ void print_all(const char * const format, ...)
 	char *s;
 
 	va_start(args, format);
+	if (format == NULL)
+		printf("NULL");
 	while (format[length] != '\0')
 		length++;
+	switchCases(a, comma, length);
+
+	printf("\n");
+	va_end(args);
+}
+
+/**
+ *switchCases-extra function
+ *Return:0
+ *@a:a
+ *@comma:comma
+ *@length:length
+ */
+void switchCases(int a, int comma, int length)
+{
 	while (a < length)
 	{
 		if (a != 0 && comma == 1)
@@ -34,9 +51,12 @@ void print_all(const char * const format, ...)
 			break;
 		case 's':
 			s = va_arg(args, char*);
-			if (s == NULL)
+			switch (s)
 			{
-				printf("%p", s);
+			case NULL:
+				printf("ERROR");
+			default:
+				printf("p", s);
 				break;
 			}
 			printf("%s", s);
@@ -49,6 +69,4 @@ void print_all(const char * const format, ...)
 		comma = 1;
 		a++;
 	}
-	printf("\n");
-	va_end(args);
 }
