@@ -1,4 +1,3 @@
-
 	section .text		;section declaration
 
 	;; we must export the entry point to the ELF linker or
