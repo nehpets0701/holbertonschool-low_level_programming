@@ -6,7 +6,7 @@
 /**
  *print_list-prints list
  *Return: number of nodes
- *@list_t: struct
+ *@h: struct
  */
 size_t print_list(const list_t *h)
 {
