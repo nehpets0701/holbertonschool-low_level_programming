@@ -4,6 +4,7 @@
 /**
  *list_len-length
  *Return: number of elements
+ *@h: struct
  */
 size_t list_len(const list_t *h)
 {
