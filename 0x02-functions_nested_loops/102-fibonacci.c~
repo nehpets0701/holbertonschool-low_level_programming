@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+/**
+ *main-main
+ *Return:0
+ */
+int main(void)
+{
+	int i;
+	int a = 1;
+	int b = 2;
+	int c;
+
+	for (i = 0; i < 50; i++)
+	{
+		if (i < 49)
+		{
+			printf("%i, ", a);
+			c = b + a;
+			a = b;
+			b = c;
+		}
+		else
+			printf("%i\n", a);
+	}
+	return (0);
+}

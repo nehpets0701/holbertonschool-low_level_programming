@@ -4,35 +4,13 @@
 #include <stdarg.h>
 
 /**
- *print_all-print
- *Return:0
- *@format:format
- */
-void print_all(const char * const format, ...)
-{
-	va_list args;
-	int a = 0, comma = 1, length = 0;
-	char *s;
-
-	va_start(args, format);
-	if (format == NULL)
-		printf("NULL");
-	while (format[length] != '\0')
-		length++;
-	switchCases(a, comma, length);
-
-	printf("\n");
-	va_end(args);
-}
-
-/**
  *switchCases-extra function
  *Return:0
  *@a:a
  *@comma:comma
  *@length:length
  */
-void switchCases(int a, int comma, int length)
+void switchCases(int a, int comma, int length, va_list args, const char *format)
 {
 	while (a < length)
 	{
@@ -50,13 +28,12 @@ void switchCases(int a, int comma, int length)
 			printf("%f", va_arg(args, double));
 			break;
 		case 's':
-			s = va_arg(args, char*);
-			switch (s)
+			switch (va_arg(argc, char*));
 			{
 			case NULL:
 				printf("ERROR");
 			default:
-				printf("p", s);
+				printf("%p", s);
 				break;
 			}
 			printf("%s", s);
@@ -69,4 +46,25 @@ void switchCases(int a, int comma, int length)
 		comma = 1;
 		a++;
 	}
+}
+
+/**
+ *print_all-print
+ *Return:0
+ *@format:format
+ */
+void print_all(const char * const format, ...)
+{
+	va_list args;
+	int a = 0, comma = 1, length = 0;
+
+	va_start(args, format);
+	if (format == NULL)
+		printf("NULL");
+	while (format[length] != '\0')
+		length++;
+	switchCases(a, comma, length, args, format);
+
+	printf("\n");
+	va_end(args);
 }
