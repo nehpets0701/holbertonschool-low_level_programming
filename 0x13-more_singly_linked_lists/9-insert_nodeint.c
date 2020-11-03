@@ -29,7 +29,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		if (count == idx)
 		{
 			temp = headTemp->next;
-			tempHead->next = new;
+			headTemp->next = new;
 			new->next = temp;
 			return (headTemp);
 		}
