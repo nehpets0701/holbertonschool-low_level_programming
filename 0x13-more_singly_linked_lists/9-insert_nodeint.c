@@ -34,34 +34,43 @@ size_t max(const listint_t *h)
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *temp, *new, *headTemp;
-	unsigned int count = 0, maximum = 0;
+	listint_t *index, *new;
+	unsigned int i = 0, maximum = 0;
 
 	if (head == NULL)
 		return (NULL);
 
 	maximum = max(*head);
+	index = *head;
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
 		return (NULL);
-	new->n = n;
 
-	if (idx > maximum)
+	if (idx == maximum + 1)
+	{
+		while (index->next != NULL)
+			index = index->next;
+		new->n = n;
+		new->next = NULL;
+		index->next = new;
+		return (new);
+	}
+	if (idx > maximum + 1)
 		return (NULL);
 
-	headTemp = *head;
-	while (headTemp != NULL)
+	if (index == 0)
 	{
-		if (count == idx)
-		{
-			temp = headTemp->next;
-			headTemp->next = new;
-			new->next = temp;
-			return (headTemp);
-		}
-		count++;
-		headTemp = headTemp->next;
+		new->n = n;
+		new->next = *head;
+		*head = new;
+		return (*head);
 	}
-	return (NULL);
+
+	for (i = 0; i < idx - 1; i++)
+		index = index->next;
+	new->next = index->next;
+	index->next = new;
+	new->n = n;
+	return (new);
 }
