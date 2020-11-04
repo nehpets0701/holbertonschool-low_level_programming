@@ -35,10 +35,12 @@ size_t max(const listint_t *h)
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	listint_t *temp, *new, *headTemp;
-	unsigned int count = 0, maximum = max(*head);
+	unsigned int count = 0, maximum = 0;
 
 	if (head == NULL)
 		return (NULL);
+
+	maximum = max(*head);
 
 	new = malloc(sizeof(listint_t));
 	if (new == NULL)
