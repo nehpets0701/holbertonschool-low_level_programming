@@ -29,7 +29,7 @@ int create_file(const char *filename, char *text_content)
 		while (text_content[length] != '\0')
 			length++;
 
-		charsWritten = write(file, text_content, len);
+		charsWritten = write(file, text_content, length);
 		if (charsWritten == -1)
 			return (-1);
 	}
