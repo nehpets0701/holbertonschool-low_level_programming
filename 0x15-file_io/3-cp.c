@@ -7,6 +7,38 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
+/**
+ *copy-copy
+ *Return:void
+ *@src:source file
+ *@dest:destination file
+ *@str:string of contents
+ *@av:arguments aka filenames
+ */
+void copy(int src, int dest, char *str, char **av)
+{
+	int bytesRead, total = 0;
+
+	while (1)
+	{
+		bytesRead = read(src, str, 1024);
+		if (readbytes == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+			exit(98);
+		}
+		if (bytesRead == 0)
+			break;
+		total += bytesRead;
+	}
+}
+
+/**
+ *main-main
+ *Return:0
+ *@ac:number of args
+ *@av:value of args
+ */
 int main(int ac, char **av)
 {
 	int src, dest, closeSrc, closeDest;
@@ -34,6 +66,7 @@ int main(int ac, char **av)
 		exit(99);
 	}
 
+	copy(src, dest, str, av);
 	closeSrc = close(src);
 	if (closeSrc == -1)
 	{
@@ -46,7 +79,6 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest);
 		exit(100);
 	}
-
 	free(str);
 	return (0);
 }
