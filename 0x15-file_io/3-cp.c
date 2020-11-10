@@ -17,7 +17,7 @@
  */
 void copy(int src, int dest, char *str, char **av)
 {
-	int bytesRead, total = 0;
+	int closeSrc, closeDest, check, bytesRead, total = 0;
 
 	while (1)
 	{
@@ -30,6 +30,28 @@ void copy(int src, int dest, char *str, char **av)
 		if (bytesRead == 0)
 			break;
 		total += bytesRead;
+
+		if (total % 1024 == 0 && bytesRead != 0)
+			check = write(dest, str, bytesRead);
+		if (total % 1024 != 0)
+			check = write(dest, str, (total % 1024));
+		if (check == -1)
+		{
+			closeSrc = close(src);
+			if (closeSrc == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src);
+				exit(100);
+			}
+			closeDest = close(dest);
+			if (closeDest == -1)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest);
+				exit(100);
+			}
+			dpirntf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		}
 	}
 }
 
