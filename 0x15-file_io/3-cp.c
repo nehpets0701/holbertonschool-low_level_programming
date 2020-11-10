@@ -22,7 +22,7 @@ void copy(int src, int dest, char *str, char **av)
 	while (1)
 	{
 		bytesRead = read(src, str, 1024);
-		if (readbytes == -1)
+		if (bytesRead == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 			exit(98);
@@ -49,7 +49,7 @@ void copy(int src, int dest, char *str, char **av)
 				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dest);
 				exit(100);
 			}
-			dpirntf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
 	}
@@ -70,9 +70,9 @@ int main(int ac, char **av)
 	if (str == NULL)
 		return (-1);
 
-	if (argc != 3)
+	if (ac != 3)
 	{
-		dprintf(STDERR_FILENO"Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	src = open(av[1], O_RDONLY);
