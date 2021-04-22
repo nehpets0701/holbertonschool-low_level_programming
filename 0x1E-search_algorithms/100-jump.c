@@ -23,17 +23,16 @@ int jump_search(int *array, size_t size, int value)
 		{
 			if (array[i] == value)
 				return (value);
-			else
-			{
-				for (j = i - step; j == i; j++)
-				{
-					if (array[j] == value)
-						return (array[j]);
-				}
 
-				return (-1);
+			for (j = i - step; j == i; j++)
+			{
+				if (array[j] == value)
+					return (array[j]);
 			}
+			return (-1);
 		}
+		else
+			continue;
 	}
 
 	return (-1);
